@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Purchase, CreatePurchase, TopProduct, FinancialSummary } from '../types';
 
-const API_URL = (import.meta.env as any).VITE_API_URL || 'http://localhost:3001';
+const API_URL = ((import.meta as any).env.VITE_API_URL as string) || 'http://localhost:3001';
 
 const api = axios.create({
   baseURL: API_URL,

@@ -1,8 +1,18 @@
 import axios from 'axios';
 import type { Purchase, CreatePurchase, TopProduct, FinancialSummary } from '../types';
 
-const API_URL = ((import.meta as any).env.VITE_API_URL as string) || 'https://backendg-qw18.onrender.com';
-// Debug: affiche l'URL d'API utilisée au démarrage (ouvrir la console navigateur)
+// Récupérer l'URL de l'API depuis les variables d'environnement
+const getApiUrl = (): string => {
+  // Vite expose les variables VITE_* via import.meta.env
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.trim() !== '') {
+    return envUrl;
+  }
+  // Fallback par défaut
+  return 'https://backendg-qw18.onrender.com';
+};
+
+const API_URL = getApiUrl();
 console.debug('API_URL:', API_URL);
 
 const api = axios.create({

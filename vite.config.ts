@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 5173,
   },
+  define: {
+    'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || 'https://backendg-qw18.onrender.com'),
+  },
   test: {
     globals: true,
     environment: 'jsdom',

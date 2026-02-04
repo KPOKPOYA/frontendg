@@ -1,7 +1,9 @@
 import axios from 'axios';
 import type { Purchase, CreatePurchase, TopProduct, FinancialSummary } from '../types';
 
-const API_URL = ((import.meta as any).env.VITE_API_URL as string) || 'http://localhost:3001';
+const API_URL = ((import.meta as any).env.VITE_API_URL as string) || 'https://purchase-tracker-backend.fly.dev';
+// Debug: affiche l'URL d'API utilisée au démarrage (ouvrir la console navigateur)
+console.debug('API_URL:', API_URL);
 
 const api = axios.create({
   baseURL: API_URL,
